@@ -63,14 +63,14 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public void update(Seller obj) {
-PreparedStatement st = null;
+		PreparedStatement st = null;
 		
 		try {
 			st = conn.prepareStatement(
 					"UPDATE seller "
 					+ "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
 					+ "WHERE id = ?"
-					, Statement.RETURN_GENERATED_KEYS);
+					);
 			
 			st.setString(1, obj.getName());
 			st.setString(2, obj.getEmail());
